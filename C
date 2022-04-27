@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+//void csere(int a, int b);
+/*{
+    int temp=a;
+    a=b;
+    b=temp;
+}
+{
+    int temp=a;
+    a=b;
+    b=temp;
+
+    int temp=*a;
+    *a=*b;
+    *b=temp;
+}*/
+
+int holvan (double t[], int meret, double kulcs)
+{
+    for(int i=0;i<meret;i++)
+    if (kulcs==t[i])
+        return i;
+return -1;
+
+
+}
+
+
+
+int main()
+{
+  double szamok []={1,2,3,4,55,432};
+  double kulcs = 3.14;
+  int hol= holvan(szamok,5,kulcs);
+  printf("kulcs a %d helyen van\n,hol");
+
+/*  printf("\n");
+  //fg hivas
+  int x=10;
+  int y=20;
+  csere(x,y);
+  printf("x=%d y=%d\n");
+
+  printf("\n");
+
+  return 0;
+
+}*/
