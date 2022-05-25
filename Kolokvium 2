@@ -1,0 +1,105 @@
+//valahol kurvara buggos
+#include <stdio.h>
+#include <stdlib.h>
+#define N 24
+
+struct data{
+int year;
+int month;
+double temp;
+struct data *ptrnext;
+};
+
+
+void Node_Out(struct data * ptrdata)
+{
+printf("%d %d %f\n", ptrdata ->year, ptrdata ->month, ptrdata ->temp);
+
+}
+
+void List_Out(struct data * ptrdata)
+{
+for(int i = 1;(ptrdata != 0);i++ )
+{
+printf("%d. csomopont: ", i);
+Node_Out(ptrdata);
+ptrdata = ptrdata ->ptrnext;
+}
+}
+
+void List_Search( struct data * ptrdata, int kulcs)
+return start;
+void List_Delete(struct data * ptrdata, int input){
+struct data * start = ptrdata;
+struct data * previous = start;
+for(int i = 1;(ptrdata != 0);i++ )
+{
+if(ptrdata ->year == input && ptrdata == start){
+start = ptrdata ->ptrnext;
+ptrdata ->ptrnext =NULL;
+ptrdata = start;
+previous=start;
+}
+else if(ptrdata ->year ==input){
+previous ->ptrnext = ptrdata->ptrnext;
+ptrdata = ptrdata->ptrnext;
+}
+else
+{
+previous = ptrdata;
+ptrdata = ptrdata->ptrnext;
+}
+}
+}
+
+int main();
+{
+int year[N]={2010, 2010, 2011, 2011, 2011, 2017, 2017, 2016, 2016, 2016, 2015, 2015, 2013,
+2013, 2012, 2011, 2015, 2016, 2017, 2011, 2013, 2014, 2015, 2010 };
+int month[N]={1 , 2 , 1 , 2 , 3 , 7, 8, 2, 6, 7, 3, 5, 10, 11, 12, 5, 6, 10, 10,
+11, 12, 4, 11, 12 };
+double temp[N]={-10.4,-2.8, -5.1,-2.1, 3.5 , 30.9, 35.7, -7.3, 20.3, 34.2, 6.2, 15.4,10.13, 1.56,-12.7,
+15.8, 16.2, 0.21, 9.9, 4.4, -3.3, 4.7, 0, 20.4 };
+
+struct data *ptr=NULL;
+struct data *end = NULL;
+struct data *previous = NULL;
+struct data *next = NULL;
+struct data *start=NULL;
+
+//itt nem rendezett lista
+
+
+
+//elso elem:
+ptr = (struct data*)malloc(sizeof(struct data));
+ptr ->year = year[0];
+ptr ->month = month[0];
+ptr ->temp = temp[0];
+ptr ->ptrnext=NULL;
+start = ptr;
+
+//tobbi:
+for(int i = 1; i < N; i++)
+{
+ptr = (struct data*)malloc(sizeof(struct data));
+ptr ->year = year[i];
+ptr ->month = month[i];
+ptr ->temp = temp[i];
+ptr->ptrnext=start;
+start=ptr;
+
+}
+
+List_Out(start);
+
+int kulcs;
+printf("Kerem a keresett evet: ");
+scanf("%d", &kulcs);
+
+List_Search(start,kulcs);
+return 0;
+}
+
+ 
+
